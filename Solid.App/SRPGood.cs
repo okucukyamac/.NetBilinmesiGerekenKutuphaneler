@@ -7,9 +7,6 @@ using System.Threading.Tasks;
 
 namespace Solid.App.SRP.Good
 {
-
-
-
     public class Product
     {
         public int Id { get; set; }
