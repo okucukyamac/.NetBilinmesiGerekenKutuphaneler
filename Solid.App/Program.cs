@@ -1,10 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Solid.App.OCPGood;
-using static Solid.App.OCPGood2.OCPGood2;
+
+using Solid.App.LSPGood;
 
 Console.WriteLine("Hello, World!");
 
-SalaryCalculator salaryCalculator = new();
+
+#region OCP
+//SalaryCalculator salaryCalculator = new();
+
 
 //Bad way
 //Console.WriteLine(salaryCalculator.Calculate(1000,SalaryType.Low));
@@ -18,14 +21,23 @@ SalaryCalculator salaryCalculator = new();
 //Console.WriteLine(salaryCalculator.Calculate(1000, new ManagerSalaryCalculate()));
 
 //Good2 way
-Console.WriteLine(salaryCalculator.Calculate(1000, new LowSalaryCalculate().Calculate));
-Console.WriteLine(salaryCalculator.Calculate(1000, new MiddleSalaryCalculate().Calculate));
-Console.WriteLine(salaryCalculator.Calculate(1000, new HighSalaryCalculate().Calculate));
-Console.WriteLine(salaryCalculator.Calculate(1000, new ManagerSalaryCalculate().Calculate));
+//Console.WriteLine(salaryCalculator.Calculate(1000, new LowSalaryCalculate().Calculate));
+//Console.WriteLine(salaryCalculator.Calculate(1000, new MiddleSalaryCalculate().Calculate));
+//Console.WriteLine(salaryCalculator.Calculate(1000, new HighSalaryCalculate().Calculate));
+//Console.WriteLine(salaryCalculator.Calculate(1000, new ManagerSalaryCalculate().Calculate));
 
-Console.WriteLine(salaryCalculator.Calculate(1000, a =>
-{
-    return a * 10;
-}));
+//Console.WriteLine(salaryCalculator.Calculate(1000, a =>
+//{
+//    return a * 10;
+//}));
+#endregion
 
+BasePhone phone = new IPhone();
+
+phone.Call();
+((ITakePhoto)phone).TakePhoto();
+
+phone = new Nokia3310();
+
+phone.Call();
 
