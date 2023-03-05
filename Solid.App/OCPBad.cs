@@ -11,6 +11,7 @@ namespace Solid.App.OCPBad
         public decimal Calculate(decimal salary, SalaryType salaryType)
         {
             decimal newSalary = 0;
+
             switch (salaryType)
             {
                 case SalaryType.Low:
@@ -34,6 +35,7 @@ namespace Solid.App.OCPBad
     {
         Low,
         Middle,
-        High
+        High,
+        Super 
     }
 }
