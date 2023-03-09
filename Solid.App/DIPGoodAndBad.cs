@@ -8,9 +8,9 @@ namespace Solid.App.DIPGoodAndBad
 {
     public class ProductService
     {
-        private readonly ProductRepositoryFromSqlServer _repository;
+        private readonly IRepository _repository;
 
-        public ProductService(ProductRepositoryFromSqlServer repository)
+        public ProductService(IRepository repository)
         {
             _repository = repository;
         }

@@ -50,7 +50,7 @@ Console.WriteLine("Hello, World!");
 
 #region Lsp
 
-var productService = new ProductService(new ProductRepositoryFromSqlServer());
+var productService = new ProductService(new ProductRepositoryFromOracle());
 
 productService.GetAll().ForEach(x => Console.WriteLine(x));
 
