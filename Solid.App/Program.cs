@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Solid.App.DIPGoodAndBad;
 using Solid.App.LSPGood;
 
 Console.WriteLine("Hello, World!");
@@ -32,12 +33,25 @@ Console.WriteLine("Hello, World!");
 //}));
 #endregion
 
-BasePhone phone = new IPhone();
+#region Lsp
 
-phone.Call();
-((ITakePhoto)phone).TakePhoto();
+//BasePhone phone = new IPhone();
 
-phone = new Nokia3310();
+//phone.Call();
+//((ITakePhoto)phone).TakePhoto();
 
-phone.Call();
+//phone = new Nokia3310();
 
+//phone.Call();
+
+#endregion
+
+
+
+#region Lsp
+
+var productService = new ProductService(new ProductRepositoryFromSqlServer());
+
+productService.GetAll().ForEach(x => Console.WriteLine(x));
+
+#endregion
