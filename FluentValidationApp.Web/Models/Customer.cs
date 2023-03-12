@@ -1,4 +1,6 @@
-﻿namespace FluentValidationApp.Web.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FluentValidationApp.Web.Models
 {
     public class Customer
     {

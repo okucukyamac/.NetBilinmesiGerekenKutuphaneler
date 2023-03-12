@@ -1,3 +1,6 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using FluentValidationApp.Web.FluentValidators;
 using FluentValidationApp.Web.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +35,12 @@ namespace FluentValidationApp.Web
                 options.UseSqlServer(Configuration["ConStr"]);
             });
 
-            services.AddControllersWithViews();
+            //services.AddSingleton<IValidator<Customer>, CustomerValidator>();
+
+            services.AddControllersWithViews().AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
