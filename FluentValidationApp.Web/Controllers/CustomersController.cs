@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FluentValidationApp.Web.Models;
 using FluentValidation;
+using FluentValidationApp.Web.FluentValidators;
 
 namespace FluentValidationApp.Web.Controllers
 {
@@ -59,8 +60,11 @@ namespace FluentValidationApp.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,Email,Age,BirthDay")] Customer customer)
         {
-            var result = _customerValidator.Validate(customer);
 
+            CustomerValidator customerValidattor = new CustomerValidator();
+
+            //1
+            var result= customerValidattor.Validate(customer);
             if (result.IsValid)
             {
                 _context.Add(customer);
@@ -68,6 +72,17 @@ namespace FluentValidationApp.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            //2
+            //var result = _customerValidator.Validate(customer);
+
+            //if (result.IsValid)
+            //{
+            //    _context.Add(customer);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+
+            //3
             //if (ModelState.IsValid)
             //{
             //    _context.Add(customer);
@@ -75,7 +90,7 @@ namespace FluentValidationApp.Web.Controllers
             //    return RedirectToAction(nameof(Index));
             //}
 
-           
+
 
             return View();
         }
