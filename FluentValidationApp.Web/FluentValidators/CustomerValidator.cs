@@ -19,7 +19,7 @@ namespace FluentValidationApp.Web.FluentValidators
             RuleFor(a => a.BirthDay).NotEmpty().WithMessage(NotEmptyMessage).Must(a =>
             {
                 return DateTime.Now.AddYears(-18) >= a;
-            }).WithMessage("Yaşınız 18 yaşından büyük olmalıdır.");
+            }).WithMessage("Yaşınız 18'den büyük olmalıdır.");
 
             RuleForEach(a=>a.Addresses).SetValidator(new AddressValidator());
         }
