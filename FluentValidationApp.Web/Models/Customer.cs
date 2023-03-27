@@ -14,5 +14,6 @@ namespace FluentValidationApp.Web.Models
         public DateTime? BirthDay { get; set; }
         // Customer.Address[1] gibi kullanabilmeme için Ilist kullanmam gerek.
         public IList<Address> Addresses{ get; set; }
+        public Gender Gender { get; set; }
     }
 }
