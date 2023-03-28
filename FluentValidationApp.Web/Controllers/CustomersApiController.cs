@@ -28,8 +28,7 @@ namespace FluentValidationApp.Web.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
-            var result= await _context.Customers.ToListAsync();
-            return result;
+            return await _context.Customers.ToListAsync();
         }
 
         // GET: api/CustomersApi/5
