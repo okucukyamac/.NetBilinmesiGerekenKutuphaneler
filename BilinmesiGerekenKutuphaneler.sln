@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.App", "Solid.App\Solid.App.csproj", "{6740251B-CE6D-4D31-92EE-D4792ADC755E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationApp.Web", "FluentValidationApp.Web\FluentValidationApp.Web.csproj", "{F9121601-CE4E-4E93-B135-4858C67097F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationApp.Web", "FluentValidationApp.Web\FluentValidationApp.Web.csproj", "{F9121601-CE4E-4E93-B135-4858C67097F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
