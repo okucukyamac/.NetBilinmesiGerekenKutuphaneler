@@ -92,7 +92,6 @@ namespace FluentValidationApp.Web.Controllers
 
             if (!result.IsValid)
             {
-
                 return BadRequest(result.Errors.Select(x => new { property = x.PropertyName, error = x.ErrorMessage }));
             }
 
