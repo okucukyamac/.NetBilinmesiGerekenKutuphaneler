@@ -4,7 +4,6 @@ namespace FluentValidationApp.Web.DTOs
 {
     public class CustomerDto
     {
-        public int denem { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
