@@ -15,5 +15,12 @@ namespace FluentValidationApp.Web.Models
         // Customer.Address[1] gibi kullanabilmeme için Ilist kullanmam gerek.
         public IList<Address> Addresses{ get; set; }
         public Gender Gender { get; set; }
+
+        public CreditCard CreditCard { get; set; }
+
+        public string GetFullName()
+        {
+            return $"{Name}-{Email}-{Age}";
+        }
     }
 }
