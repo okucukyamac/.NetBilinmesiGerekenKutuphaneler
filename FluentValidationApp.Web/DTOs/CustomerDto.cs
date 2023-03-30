@@ -11,6 +11,5 @@ namespace FluentValidationApp.Web.DTOs
         public string FullName { get; set; }
         public string CreditCardNumber { get; set; }
         public DateTime CreditCardValidDate { get; set; }
-        public int akak { get; set; }
     }
 }
