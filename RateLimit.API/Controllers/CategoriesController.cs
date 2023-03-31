@@ -2,14 +2,13 @@
 
 namespace RateLimit.API.Controllers
 {
-    public class CategoriesController : Controller
+    public class CategoriesController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        [Route("api/[controller]")]
 
+        [HttpGet]
         public IActionResult GetCategory()
+        
         {
             return Ok(new { Id = 1, Category = "Kırtasiye" });
         }
@@ -19,5 +18,12 @@ namespace RateLimit.API.Controllers
         {
             return Ok(new { Status = "Success" });
         }
+
+        [HttpPut]
+        public IActionResult UpdateProduct()
+        {
+            return Ok();
+        }
+
     }
 }
