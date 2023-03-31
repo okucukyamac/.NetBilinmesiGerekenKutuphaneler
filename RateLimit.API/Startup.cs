@@ -32,9 +32,17 @@ namespace RateLimit.API
 
             #region Rate Limit
             services.AddMemoryCache();
-            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
-            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
-            services.AddSingleton<IIpPolicyStore,MemoryCacheIpPolicyStore>();
+
+            //Ip rate limit
+            //services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+            //services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+            //services.AddSingleton<IIpPolicyStore,MemoryCacheIpPolicyStore>();
+            
+            //Client Rate limit
+            services.Configure<ClientRateLimitOptions>(Configuration.GetSection("ClientRateLimiting"));
+            services.Configure<ClientRateLimitOptions>(Configuration.GetSection("ClientRateLimitPolicies"));
+            services.AddSingleton<IClientPolicyStore, MemoryCacheClientPolicyStore>();
+
             services.AddSingleton<IRateLimitCounterStore,MemoryCacheRateLimitCounterStore>();
             services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
             services.AddSingleton<IRateLimitConfiguration,RateLimitConfiguration>();
@@ -52,7 +60,8 @@ namespace RateLimit.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseIpRateLimiting();
+            //app.UseIpRateLimiting(); ip rate limit
+            app.UseClientRateLimiting();
 
             app.UseHttpsRedirection();
 
