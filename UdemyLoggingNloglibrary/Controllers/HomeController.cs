@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using UdemyLogging.Models;
+using UdemyLoggingNloglibrary.Models;
 
-namespace UdemyLogging.Controllers
+namespace UdemyLoggingNloglibrary.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,14 +20,7 @@ namespace UdemyLogging.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogTrace("Index sayfasına girildi");
-            _logger.LogDebug("Index sayfasına girildi");
-            _logger.LogInformation("Index sayfasına girildi");
-
-            _logger.LogWarning("Index sayfasına girildi");
-            _logger.LogError("Index sayfasına girildi");
-            _logger.LogCritical("Index sayfasına girildi");
-
+            _logger.LogInformation("index sayfası başlamıştır.");
             return View();
         }
 

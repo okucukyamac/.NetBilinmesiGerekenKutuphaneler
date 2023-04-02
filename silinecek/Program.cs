@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace UdemyLogging
+namespace silinecek
 {
     public class Program
     {
@@ -20,10 +20,7 @@ namespace UdemyLogging
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().ConfigureLogging(logging =>
-                    {
-                        logging.ClearProviders(); 
-                    });
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }

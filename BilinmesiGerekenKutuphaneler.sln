@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationApp.Web", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RateLimit.API", "RateLimit.API\RateLimit.API.csproj", "{64DE8C30-DE69-4CA4-AE99-5C1CCF89D61C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyLogging", "UdemyLogging\UdemyLogging.csproj", "{57289DF4-2979-4D3F-860F-2E7FE9DC5995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyLogging", "UdemyLogging\UdemyLogging.csproj", "{57289DF4-2979-4D3F-860F-2E7FE9DC5995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyLoggingNloglibrary", "UdemyLoggingNloglibrary\UdemyLoggingNloglibrary.csproj", "{8175BA96-ABC8-474F-B8B9-A5E4C801FAA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "silinecek", "silinecek\silinecek.csproj", "{98463D0F-3F9B-4221-877E-E680B4CF0557}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{57289DF4-2979-4D3F-860F-2E7FE9DC5995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57289DF4-2979-4D3F-860F-2E7FE9DC5995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57289DF4-2979-4D3F-860F-2E7FE9DC5995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8175BA96-ABC8-474F-B8B9-A5E4C801FAA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8175BA96-ABC8-474F-B8B9-A5E4C801FAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8175BA96-ABC8-474F-B8B9-A5E4C801FAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8175BA96-ABC8-474F-B8B9-A5E4C801FAA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98463D0F-3F9B-4221-877E-E680B4CF0557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98463D0F-3F9B-4221-877E-E680B4CF0557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98463D0F-3F9B-4221-877E-E680B4CF0557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98463D0F-3F9B-4221-877E-E680B4CF0557}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
