@@ -23,6 +23,7 @@ namespace UdemyLoggingNloglibrary
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception exception)
+
             {
                 //NLog: catch setup errors
                 logger.Error(exception, "Stopped program because of exception");

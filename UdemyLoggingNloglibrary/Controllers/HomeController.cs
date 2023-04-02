@@ -20,6 +20,21 @@ namespace UdemyLoggingNloglibrary.Controllers
 
         public IActionResult Index()
         {
+
+            int value1 = 5;
+            int value2 = 0;
+            int result;
+            try
+            {
+                result = value1 / value2;
+
+            }
+            catch (Exception e)
+            {
+                this._logger.LogError(e,e.Message);
+            }
+
+
             _logger.LogInformation("index sayfası başlamıştır.");
             return View();
         }
