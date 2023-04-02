@@ -11,7 +11,9 @@ using SwaggerApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SwaggerApi
 {
@@ -31,6 +33,14 @@ namespace SwaggerApi
             {
                 opts.UseSqlServer(Configuration["ConnectionString"]);
             });
+
+            services.AddSwaggerGen(gen =>
+            {
+                gen.SwaggerDoc("V1", new Info
+                {
+
+                })
+            })
 
             services.AddControllers();
 
