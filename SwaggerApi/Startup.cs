@@ -14,6 +14,8 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.Swagger;
+using Swashbuckle.Application;
 
 namespace SwaggerApi
 {
@@ -36,11 +38,19 @@ namespace SwaggerApi
 
             services.AddSwaggerGen(gen =>
             {
-                gen.SwaggerDoc("V1", new Info
+                gen.SwaggerDoc("productV1", new Microsoft.OpenApi.Models.OpenApiInfo
                 {
-
-                })
-            })
+                    Version = "v1",
+                    Title="Product Api",
+                    Description="Ürün ekleme/silme iþlemlerini gerçekleþtiren api",
+                    Contact=new Microsoft.OpenApi.Models.OpenApiConstants
+                    {
+                        name="Oðuzhan Küçükyamaç",
+                        email="okucukyamac@gmail.com",
+                        url="www.ok.com"
+                    }
+                });
+            });
 
             services.AddControllers();
 
