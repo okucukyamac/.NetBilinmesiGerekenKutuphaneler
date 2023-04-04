@@ -20,14 +20,28 @@ namespace SwaggerApi.Controllers
             _context = context;
         }
 
-        // GET: api/Products
+        /// <summary>
+        /// Bu endpoint tüm ürünleri list olarak geri döner.
+        /// </summary>
+        /// <remarks>
+        /// örnek: https://localhost:44318/api/products
+        /// </remarks>
+        /// <returns></returns>
+        [Produces("application/json")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await _context.Products.ToListAsync();
         }
 
-        // GET: api/Products/5
+        /// <summary>
+        /// Bu endpoint verilen id ye sahip ürünü döner
+        /// </summary>
+        /// <param name="id">ürünün id'si</param>
+        /// <returns></returns>
+        /// <response code="404">verilen id sahip ürün bulunmadı</response>
+        /// <response code="200">verilen id'ye sahip ürün vardır</response>
+        [Produces("application/json")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -73,12 +87,21 @@ namespace SwaggerApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Products
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        /// <summary>
+        /// Bu endpoinnt ürün ekler
+        /// </summary>
+        /// <remarks>
+        /// Örnek: product json:{"name":"kalem,"price":12,"category":"kirtasiye"}
+        /// </remarks>
+        /// <param name="product">json product nesnesi</param>
+        /// <returns></returns>
+        [Consumes("application/json")]
+        [Produces("application/json")]
+
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+            product.Date = DateTime.Now;
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
