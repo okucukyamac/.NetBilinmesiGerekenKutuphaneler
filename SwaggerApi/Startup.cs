@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.Swagger;
 using Swashbuckle.Application;
+using System.IO;
 
 namespace SwaggerApi
 {
@@ -43,14 +44,23 @@ namespace SwaggerApi
                     Version = "v1",
                     Title="Product Api",
                     Description="Ürün ekleme/silme iþlemlerini gerçekleþtiren api",
-                    Contact=new Microsoft.OpenApi.Models.OpenApiConstants
+                    Contact=new Microsoft.OpenApi.Models.OpenApiContact
                     {
-                        name="Oðuzhan Küçükyamaç",
-                        email="okucukyamac@gmail.com",
-                        url="www.ok.com"
+                        Name="Oðuzhan Küçükyamaç",
+                        Email="okucukyamac@gmail.com",
                     }
                 });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                gen.IncludeXmlComments(xmlPath);
+
             });
+
+          
+
+
+
 
             services.AddControllers();
 
@@ -63,6 +73,12 @@ namespace SwaggerApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/productV1/swagger.json", "Product API");
+            });
 
             app.UseHttpsRedirection();
 
