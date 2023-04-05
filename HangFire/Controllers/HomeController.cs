@@ -23,6 +23,7 @@ namespace HangFire.Controllers
 
         public IActionResult Index()
         {
+            BackgroundJobs.RecurringJobs.ReportingJob();
             return View();
         }
 
@@ -68,6 +69,8 @@ namespace HangFire.Controllers
                 }
 
                 string jobId = DelayedJobs.AddWaterMarkJob(newFileName, "www.mysite.com");
+
+                BackgroundJobs.ContinuationsJobs.WriteWatermarkStatusJob(jobId, newFileName);
 
             }
 
