@@ -32,6 +32,7 @@ namespace ErrorHanding
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages("text/plain","Bir hata var. Durum kodu:{0}");
             }
             else
             {

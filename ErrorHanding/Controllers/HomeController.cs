@@ -1,5 +1,6 @@
 ﻿using ErrorHanding.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -39,7 +40,16 @@ namespace ErrorHanding.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            //return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
+            var exception = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+
+            ViewBag.path = exception.Path;
+
+            ViewBag.message = exception.Error.Message;
+
+
+            return View();
         }
     }
 }
