@@ -1,4 +1,5 @@
-﻿using ErrorHanding.Models;
+﻿using ErrorHanding.Filter;
+using ErrorHanding.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -20,13 +21,14 @@ namespace ErrorHanding.Controllers
             _logger = logger;
         }
 
+        [CustomHandlerExceptionFilter]
         public IActionResult Index()
         {
 
             int a = 5;
             int b = 0;
 
-
+            int result = a / b;
 
             return View();
         }
@@ -49,6 +51,15 @@ namespace ErrorHanding.Controllers
             ViewBag.message = exception.Error.Message;
 
 
+            return View();
+        }
+
+        public IActionResult Hata1()
+        {
+            return View();
+        }
+        public IActionResult Hata2()
+        {
             return View();
         }
     }
